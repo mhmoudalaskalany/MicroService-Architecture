@@ -1,0 +1,55 @@
+﻿{
+  "ReRoutes": [
+    //Employees
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5088
+        }
+      ],
+      "UpstreamPathTemplate": "/Employees/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "Employees"
+    },
+    //Tasks
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5089
+        }
+      ],
+      "UpstreamPathTemplate": "/Tasks/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
+      "SwaggerKey": "Tasks"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "Employees",
+      "Config": [
+        {
+          "Name": "Employees API",
+          "Version": "v1",
+          "Url": "http://localhost:5088/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Tasks",
+      "Config": [
+        {
+          "Name": "Tasks API",
+          "Version": "v1",
+          "Url": "http://localhost:5089/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {}
+}
