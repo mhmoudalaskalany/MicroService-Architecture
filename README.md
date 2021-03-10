@@ -24,3 +24,10 @@ example:
 
 1-Employee Service : handle update operation  on employee data after that it publishan event to a queue
 2-Task Service : subscribe to that queue and consume the events from the queues and do what is required to update employee data who is assigned to task
+
+
+# Used Technologies
+
+.Net Core 3.1
+Ocelt Gateway
+Rabbit MQ
