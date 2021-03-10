@@ -28,6 +28,6 @@ example:
 
 # Used Technologies
 
-.Net Core 3.1
-Ocelt Gateway
-Rabbit MQ
+- .Net Core 3.1
+- Ocelt Gateway
+- Rabbit MQ
