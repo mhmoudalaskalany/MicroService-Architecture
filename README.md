@@ -31,3 +31,8 @@ Messaging queue using Rabbit MQ to handle events between services
 - .Net Core 6
 - Ocelt Gateway
 - Rabbit MQ
+
+# Running The Solution
+
+- Pull Rabbit MQ Image using docker and run it using this command (docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.10-management) (note: you can use local windows installation)
+- Change solution settings to start multiple projects and set them in order (Employee Service , Task Service , Api Gateway)
