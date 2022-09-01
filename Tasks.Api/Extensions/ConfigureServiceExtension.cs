@@ -34,8 +34,7 @@ namespace Tasks.Api.Extensions
             services.RegisterCores();
             services.RegisterAutoMapper();
             services.RegisterCommonServices(configuration);
-            var taskService = services.BuildServiceProvider().GetRequiredService<IEmployeeChange>();
-            taskService.EmployeeChangeSubscribe();
+            services.RegisterConsumers();
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             return services;
         }
@@ -62,6 +61,12 @@ namespace Tasks.Api.Extensions
         private static void RegisterAutoMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(typeof(MappingService));
+        }
+
+        private static void RegisterConsumers(this IServiceCollection services)
+        {
+            var taskService = services.BuildServiceProvider().GetRequiredService<IEmployeeChange>();
+            taskService.EmployeeChangeSubscribe();
         }
 
         /// <summary>
