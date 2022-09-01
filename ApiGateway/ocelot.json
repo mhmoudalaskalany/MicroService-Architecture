@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5003
+          "Port": 5005
         }
       ],
       "UpstreamPathTemplate": "/T/{everything}",
@@ -20,7 +20,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5005
+          "Port": 5003
         }
       ],
       "UpstreamPathTemplate": "/E/{everything}",
