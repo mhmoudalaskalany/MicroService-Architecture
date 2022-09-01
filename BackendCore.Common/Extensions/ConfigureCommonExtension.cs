@@ -13,25 +13,25 @@ namespace BackendCore.Common.Extensions
         public static IServiceCollection RegisterCommonServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddCors();
-            services.RegisterMainCore(configuration);
+            services.RegisterMainCore();
             services.AddApiDocumentationServices(configuration);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return services;
         }
 
-        private static void RegisterMainCore(this IServiceCollection services , IConfiguration configuration)
+        private static void RegisterMainCore(this IServiceCollection services)
         {
             services.AddTransient<IResponseResult, ResponseResult>();
-            services.AddTransient<IResult, Result>();
+            services.AddTransient<IFinalResult, FinalResult>();
         }
 
         private static void AddApiDocumentationServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSwaggerGen(options =>
             {
-                string title = configuration["SwaggerConfig:Title"];
-                string version = configuration["SwaggerConfig:Version"];
-                string docPath = configuration["SwaggerConfig:DocPath"];
+                var title = configuration["SwaggerConfig:Title"];
+                var version = configuration["SwaggerConfig:Version"];
+                var docPath = configuration["SwaggerConfig:DocPath"];
                 options.SwaggerDoc(version, new OpenApiInfo { Title = title, Version = version });
                 var filePath = Path.Combine(AppContext.BaseDirectory, docPath);
                 options.IncludeXmlComments(filePath);

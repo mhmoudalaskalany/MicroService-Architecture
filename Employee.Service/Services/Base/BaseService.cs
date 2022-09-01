@@ -17,7 +17,7 @@ namespace Employee.Service.Services.Base
         protected readonly IUnitOfWork<T> UnitOfWork;
         protected readonly IMapper Mapper;
         protected readonly IResponseResult ResponseResult;
-        protected IResult Result;
+        protected IFinalResult Result;
         protected internal BaseService(IServiceBaseParameter<T> businessBaseParameter)
         {
             UnitOfWork = businessBaseParameter.UnitOfWork;
@@ -25,7 +25,7 @@ namespace Employee.Service.Services.Base
             Mapper = businessBaseParameter.Mapper;
         }
         
-        public virtual async Task<IResult> GetAllAsync()
+        public virtual async Task<IFinalResult> GetAllAsync()
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Employee.Service.Services.Base
                 return Result;
             }
         }
-        public virtual async Task<IResult> AddAsync(TDto model)
+        public virtual async Task<IFinalResult> AddAsync(TDto model)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace Employee.Service.Services.Base
                 return Result;
             }
         }
-        public virtual async Task<IResult> AddListAsync(List<TDto> model)
+        public virtual async Task<IFinalResult> AddListAsync(List<TDto> model)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace Employee.Service.Services.Base
                 return Result;
             }
         }
-        public virtual async Task<IResult> UpdateAsync(TDto model)
+        public virtual async Task<IFinalResult> UpdateAsync(TDto model)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace Employee.Service.Services.Base
                 return Result;
             }
         }
-        public virtual async Task<IResult> DeleteAsync(Guid id)
+        public virtual async Task<IFinalResult> DeleteAsync(Guid id)
         {
             try
             {
@@ -136,7 +136,7 @@ namespace Employee.Service.Services.Base
                 return Result;
             }
         }
-        public virtual async Task<IResult> GetByIdAsync(Guid id)
+        public virtual async Task<IFinalResult> GetByIdAsync(Guid id)
         {
             try
             {

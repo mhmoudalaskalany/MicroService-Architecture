@@ -7,11 +7,11 @@ namespace Employee.Service.Services.Base
 {
     public interface IBaseService<T, TDto>
     {
-        Task<IResult> GetAllAsync();
-        Task<IResult> AddAsync(TDto model);
-        Task<IResult> AddListAsync(List<TDto> model);
-        Task<IResult> UpdateAsync(TDto model);
-        Task<IResult> DeleteAsync(Guid id);
-        Task<IResult> GetByIdAsync(Guid id);
+        Task<IFinalResult> GetAllAsync();
+        Task<IFinalResult> AddAsync(TDto model);
+        Task<IFinalResult> AddListAsync(List<TDto> model);
+        Task<IFinalResult> UpdateAsync(TDto model);
+        Task<IFinalResult> DeleteAsync(Guid id);
+        Task<IFinalResult> GetByIdAsync(Guid id);
     }
 }

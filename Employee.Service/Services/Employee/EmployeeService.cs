@@ -21,7 +21,7 @@ namespace Employee.Service.Services.Employee
         {
         }
 
-        public async override Task<IResult> AddAsync(EmployeeDto model)
+        public async override Task<IFinalResult> AddAsync(EmployeeDto model)
         {
             var emailExist = await UnitOfWork.Repository.Any(q => q.Email == model.Email);
             if (emailExist)
@@ -43,7 +43,7 @@ namespace Employee.Service.Services.Employee
             return Result;
         }
 
-        public async override Task<IResult> UpdateAsync(EmployeeDto model)
+        public async override Task<IFinalResult> UpdateAsync(EmployeeDto model)
         {
             var entityToUpdate = await UnitOfWork.Repository.GetAsync(model.Id);
             var fullName = $"{entityToUpdate.FirstName} {entityToUpdate.LastName}";
@@ -70,7 +70,7 @@ namespace Employee.Service.Services.Employee
             return Result;
         }
 
-        public async Task<IResult> GetAllWithFilterAsync(EmployeeFilterDto filter)
+        public async Task<IFinalResult> GetAllWithFilterAsync(EmployeeFilterDto filter)
         {
 
             var sortCriteria = new List<SortModel>();

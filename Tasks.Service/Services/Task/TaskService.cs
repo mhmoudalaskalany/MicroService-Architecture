@@ -17,7 +17,7 @@ namespace Tasks.Service.Services.Task
         {
         }
 
-        public async override Task<IResult> GetAllAsync()
+        public async override Task<IFinalResult> GetAllAsync()
         {
             var sortCriteria = new List<SortModel>();
             var sort = new SortModel();
@@ -28,7 +28,7 @@ namespace Tasks.Service.Services.Task
                 message: HttpStatusCode.OK.ToString());
         }
 
-        public async override Task<IResult> GetByIdAsync(Guid id)
+        public async override Task<IFinalResult> GetByIdAsync(Guid id)
         {
             var query = await UnitOfWork.Repository.FirstOrDefaultAsync(q => q.Id == id, include: src => src.Include(t => t.Employee));
             var data = Mapper.Map<TaskDto>(query);

@@ -25,7 +25,7 @@ namespace Employee.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IResult> GetAsync(Guid id)
+        public async Task<IFinalResult> GetAsync(Guid id)
         {
             var result = await _service.GetByIdAsync(id);
             return result;
@@ -36,7 +36,7 @@ namespace Employee.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IResult> GetAllAsync()
+        public async Task<IFinalResult> GetAllAsync()
         {
             var result = await _service.GetAllAsync();
             return result;
@@ -47,7 +47,7 @@ namespace Employee.Api.Controllers
         /// <param name="filter">Filter responsible for search and sort</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResult> GetPagedAsync([FromBody] EmployeeFilterDto filter)
+        public async Task<IFinalResult> GetPagedAsync([FromBody] EmployeeFilterDto filter)
         {
             return await _service.GetAllWithFilterAsync(filter);
         }
@@ -57,7 +57,7 @@ namespace Employee.Api.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResult> AddAsync(EmployeeDto dto)
+        public async Task<IFinalResult> AddAsync(EmployeeDto dto)
         {
             var result = await _service.AddAsync(dto);
             return result;
@@ -70,7 +70,7 @@ namespace Employee.Api.Controllers
         /// <param name="model">Object content</param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IResult> UpdateAsync(EmployeeDto model)
+        public async Task<IFinalResult> UpdateAsync(EmployeeDto model)
         {
 
             return await _service.UpdateAsync(model);
@@ -81,7 +81,7 @@ namespace Employee.Api.Controllers
         /// <param name="id">PK</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IResult> DeleteAsync(Guid id)
+        public async Task<IFinalResult> DeleteAsync(Guid id)
         {
             return await _service.DeleteAsync(id);
         }

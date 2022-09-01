@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Net;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using RestSharp;
 
@@ -20,10 +18,8 @@ namespace BackendCore.Common.HttpHelpers.RestSharp
         }
         public async Task<T> SendRequest<T>(string uri, Method method, object obj = null, string urlEncoded = null)
         {
-            _client.CookieContainer = new CookieContainer();
             var request = new RestRequest($"{_serverUri}{uri}", method);
-            _client.Timeout = -1;
-            if (method == Method.POST || method == Method.PUT)
+            if (method == Method.Post || method == Method.Put)
             {
                 if (urlEncoded != null)
                 {
@@ -47,7 +43,6 @@ namespace BackendCore.Common.HttpHelpers.RestSharp
         private void SetJsonContent(RestRequest request, object obj)
         {
             request.RequestFormat = DataFormat.Json;
-            request.JsonSerializer = NewtonsoftJsonSerializer.Default;
             request.AddJsonBody(obj);
         }
     }

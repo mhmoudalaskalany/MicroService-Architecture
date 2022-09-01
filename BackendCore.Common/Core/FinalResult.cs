@@ -3,7 +3,7 @@ using System.Net;
 
 namespace BackendCore.Common.Core
 {
-    public class Result : IResult
+    public class FinalResult : IFinalResult
     {
         public object Data { get; set; }
         public HttpStatusCode Status { get; set; }

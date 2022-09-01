@@ -8,6 +8,6 @@ namespace Employee.Service.Services.Employee
 {
     public interface IEmployeeService : IBaseService<Entities.Employee, EmployeeDto>
     {
-        Task<IResult> GetAllWithFilterAsync(EmployeeFilterDto filter);
+        Task<IFinalResult> GetAllWithFilterAsync(EmployeeFilterDto filter);
     }
 }

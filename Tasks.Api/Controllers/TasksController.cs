@@ -24,7 +24,7 @@ namespace Tasks.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("{id}")]
-        public async Task<IResult> GetAsync(Guid id)
+        public async Task<IFinalResult> GetAsync(Guid id)
         {
             var result = await _service.GetByIdAsync(id);
             return result;
@@ -35,7 +35,7 @@ namespace Tasks.Api.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IResult> GetAllAsync()
+        public async Task<IFinalResult> GetAllAsync()
         {
             var result = await _service.GetAllAsync();
             return result;
@@ -47,7 +47,7 @@ namespace Tasks.Api.Controllers
         /// <param name="dto"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IResult> AddAsync([FromBody] TaskDto dto)
+        public async Task<IFinalResult> AddAsync([FromBody] TaskDto dto)
         {
             var result = await _service.AddAsync(dto);
             return result;
@@ -60,7 +60,7 @@ namespace Tasks.Api.Controllers
         /// <param name="model">Object content</param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IResult> UpdateAsync(TaskDto model)
+        public async Task<IFinalResult> UpdateAsync(TaskDto model)
         {
 
             return await _service.UpdateAsync(model);
@@ -71,7 +71,7 @@ namespace Tasks.Api.Controllers
         /// <param name="id">PK</param>
         /// <returns></returns>
         [HttpDelete("{id}")]
-        public async Task<IResult> DeleteAsync(Guid id)
+        public async Task<IFinalResult> DeleteAsync(Guid id)
         {
             return await _service.DeleteAsync(id);
         }
