@@ -1,42 +1,42 @@
-﻿{
-  "ReRoutes": [
-    //Employees
+{
+  "Routes": [
     {
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5088
+          "Port": 5003
         }
       ],
-      "UpstreamPathTemplate": "/Employees/{everything}",
+      "UpstreamPathTemplate": "/T/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
-      "SwaggerKey": "Employees"
+      "SwaggerKey": "Identity"
     },
-    //Tasks
+
     {
       "DownstreamPathTemplate": "/{everything}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5089
+          "Port": 5005
         }
       ],
-      "UpstreamPathTemplate": "/Tasks/{everything}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete", "Options" ],
-      "SwaggerKey": "Tasks"
+      "UpstreamPathTemplate": "/E/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "Options" ],
+      "SwaggerKey": "Trikat"
     }
   ],
+
   "SwaggerEndPoints": [
     {
-      "Key": "Employees",
+      "Key": "Employee",
       "Config": [
         {
-          "Name": "Employees API",
+          "Name": "Employee API",
           "Version": "v1",
-          "Url": "http://localhost:5088/swagger/v1/swagger.json"
+          "Url": "https://localhost:5003/swagger/v1/swagger.json"
         }
       ]
     },
@@ -46,10 +46,14 @@
         {
           "Name": "Tasks API",
           "Version": "v1",
-          "Url": "http://localhost:5089/swagger/v1/swagger.json"
+          "Url": "https://localhost:5005/swagger/v1/swagger.json"
         }
       ]
     }
   ],
-  "GlobalConfiguration": {}
+
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5001"
+  }
 }
+
