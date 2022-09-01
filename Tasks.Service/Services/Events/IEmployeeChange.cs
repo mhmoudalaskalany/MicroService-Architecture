@@ -2,6 +2,6 @@
 {
     public interface IEmployeeChange
     {
-        void EmployeeChangeSubsribe();
+        void EmployeeChangeSubscribe();
     }
 }

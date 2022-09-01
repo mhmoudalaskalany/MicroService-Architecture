@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using AutoMapper;
 using BackendCore.Common.Abstraction.UnitOfWork;
 using BackendCore.Common.Extensions;
 using Microsoft.AspNetCore.Http;
@@ -36,7 +35,7 @@ namespace Tasks.Api.Extensions
             services.RegisterAutoMapper();
             services.RegisterCommonServices(configuration);
             var taskService = services.BuildServiceProvider().GetRequiredService<IEmployeeChange>();
-            taskService.EmployeeChangeSubsribe();
+            taskService.EmployeeChangeSubscribe();
             services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             return services;
         }

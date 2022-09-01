@@ -16,7 +16,7 @@ namespace Tasks.Service.Services.Events
             _mapper = mapper;
         }
 
-        public void EmployeeChangeSubsribe()
+        public void EmployeeChangeSubscribe()
         {
             EventPass<EmployeeChanged>.Subscribe(QueuesNames.Employees, OnEmployeeChanged);
         }
