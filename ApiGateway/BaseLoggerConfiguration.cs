@@ -11,7 +11,7 @@ namespace ApiGateway
         public static LoggerConfiguration CreateLoggerConfiguration(string applicationName)
         {
             var loggerConfiguration = new LoggerConfiguration()
-                .MinimumLevel.Information()
+                .MinimumLevel.Information() 
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Error)
                 .MinimumLevel.Override("System", LogEventLevel.Error)
                 .Enrich.FromLogContext()
