@@ -20,10 +20,10 @@ handle front end access to backend services using oclet gateway
 
 Messaging queue using Rabbit MQ to handle events between services
 
-example:
+#  Example:
 
-1-Employee Service : handle update operation  on employee data after that it publishan event to a queue
-2-Task Service : subscribe to that queue and consume the events from the queues and do what is required to update employee data who is assigned to task
+1- Employee Service : handle update operation  on employee data after that it publishan event to a queue
+2- Task Service : subscribe to that queue and consume the events from the queues and do what is required to update employee data who is assigned to task
 
 
 # Used Technologies
