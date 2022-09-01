@@ -8,9 +8,9 @@ namespace Tasks.Service.Services.Events
 {
     public class EmployeeChange : IEmployeeChange
     {
-        private readonly IUnitOfWork<Entities.Employee> _unitOfWork;
+        private readonly IUnitOfWork<Employee> _unitOfWork;
         private readonly IMapper _mapper;
-        public EmployeeChange(IUnitOfWork<Entities.Employee> unitOfWork, IMapper mapper)
+        public EmployeeChange(IUnitOfWork<Employee> unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
